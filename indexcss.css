@@ -8,15 +8,16 @@
 }
 h1 {
     font-family: "Wallpoet";
+    color: white;
     font-size: 68px;
-    font-weight: 5;
+    font-weight: 3;
     text-align: center;
-    margin-top: 0px;
+    margin: 20 20 20 20;
 }
 
     h1:hover {
         animation-name: text-color;
-        animation-duration: 500ms;
+        animation-duration: 1000ms;
         animation-fill-mode: forwards
     }
 
@@ -120,6 +121,17 @@ body {
     }
 }
 
+#portfolio{
+  text-align: inherit;
+  font-size: 36;
+  font-family: inherit;
+  margin: 300 10 10 100;
+  color: inherit;
+}
+
+#portfolio:hover{
+  color: lightgray;
+}
 
 #twitter {
     font-size: 32px;
