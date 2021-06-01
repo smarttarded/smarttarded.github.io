@@ -1,0 +1,159 @@
+<html>
+  <title>GLUONG SURVEYPAGE</title>
+  <body>
+    <head>
+        <link rel="stylesheet" type="text/css" href="techsurvecss.css">
+
+    </head>
+
+
+    <div class="container">
+        <header class="header">
+            <h1 id="title" class="text-center">KHIEM LUONG'S SURVEY FORM</h1>
+            <p id="description" class="description text-center">
+                Thank you for taking the time to help us improve the platform
+            </p>
+        </header>
+        <form action="https://sheetdb.io/api/v1/g9wstmph7kodf" name="myForm" id="survey-form" method="POST">
+            <div class="form-group">
+                <label id="name-label" for="name"></label>
+                <input type="text"
+                       name="data[NAME]"
+                       id="name"
+                       class="form-control"
+                       placeholder="ENTER YOUR NAME HERE (REQUIRED)"
+                       required>
+            </div>
+            <div class="form-group">
+                <label id="email-label" for="email"></label>
+                <input type="email"
+                       name="data[EMAIL]"
+                       id="email"
+                       class="form-control"
+                       placeholder="ENTER YOUR EMAIL HERE (REQUIRED)"
+                       required>
+            </div>
+            <div class="form-group">
+                <label id="number-label" for="number"><span class="clue"></span></label>
+                <input type="number"
+                       name="data[AGE]"
+                       id="number"
+                       min="10"
+                       max="99"
+                       class="form-control"
+                       placeholder="enter your age here" />
+            </div>
+            <div class="form-group">
+                <p>which option best describes your current role?</p>
+                <select id="dropdown" name="data[ROLE]" class="form-control">
+                    <option disabled selected value>Select current role</option>
+                    <option value="student">Student</option>
+                    <option value="part time job">Part Time Job</option>
+                    <option value="full time job">Full Time Job</option>
+                    <option value="prefer not to say">Prefer not to say</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p>Would you recommend [ORGANIZATION] to a friend?</p>
+                <label>
+                    <input name="data[RECOMMEND]"
+                           value="definitely"
+                           type="radio"
+                           class="input-radio"
+                           checked />Definitely
+                </label>
+                <label>
+                    <input name="data[RECOMMEND]"
+                           value="maybe"
+                           type="radio"
+                           class="input-radio" />Maybe
+                </label>
+
+                <label>
+                    <input name="data[RECOMMEND]"
+                           value="not-sure"
+                           type="radio"
+                           class="input-radio" />Not sure
+                </label>
+            </div>
+
+            <div class="form-group">
+                <p>
+                    What is your favorite feature of [ORGANIZATION]?
+                </p>
+                <select id="most-like" name="mostLike" class="form-control">
+                    <option disabled selected value>Select an option</option>
+                    <option value="challenges">Challenges</option>
+                    <option value="projects">Projects</option>
+                    <option value="community">Community</option>
+                    <option value="openSource">Open Source</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p>
+                    What would you like to see improved?
+                    <span class="clue">(Check all that apply)</span>
+                </p>
+
+                <label>
+                    <input name="data[FRONTEND]"
+                           value="TRUE"
+                           type="checkbox"
+                           class="input-checkbox" />Front-end Projects
+                </label>
+                <label>
+                    <input name="data[BACKEND]"
+                           value="TRUE"
+                           type="checkbox"
+                           class="input-checkbox" />Back-end Projects
+                </label>
+                <label>
+                    <input name="data[EVENTS]"
+                           value="TRUE"
+                           type="checkbox"
+                           class="input-checkbox" />Events
+                </label>
+                <label>
+                    <input name="data[CURRICULUM]"
+                           value="TRUE"
+                           type="checkbox"
+                           class="input-checkbox" />Curriculum
+                </label>
+            </div>
+
+            <div class="form-group">
+                <p>any comments, suggestions or personal thoughts?</p>
+                <textarea id="comments"
+                          class="input-textarea"
+                          name="data[COMMENTS]"
+                          maxlength="100"
+                          placeholder="enter your comments here"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="submit" class="submit-button">
+                    SUBMIT TO DATABASE
+                </button>
+            </div>
+        </form>
+      <script src="./savelocalstorage.js"></script>
+      <script>
+        var form = document.getElementById('survey-form');
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          fetch(form.action,{
+              method : "POST",
+              body: new FormData(document.getElementById("survey-form")),
+          }).then().then((html) =>
+          {
+            response => response.json()
+            alert('DATA SUBMITTED')
+            document.forms[0].reset();
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>

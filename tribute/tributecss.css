@@ -1,0 +1,81 @@
+#plate {
+  max-width: 90rem;
+  border: solid;
+  background-color: black;
+  margin: 5rem auto;
+  border-radius: 0.8%;
+  color: white;
+}
+
+#innerPlate {
+  max-width: 93%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 0.8%;
+  color: black;
+}
+
+.name {
+  margin: 5rem 0 2rem 0;
+  color: white;
+  font-size: 10rem;
+}
+
+.subName {
+  margin: 0 0 5rem 0;
+  color: white;
+}
+
+.centerImage {
+  text-align: center;
+}
+
+img {
+  border-radius: 0.8%;
+  max-width: 100%;
+  height: auto;
+}
+
+#elonElement {
+  padding: 3rem;
+}
+
+.text-center a {
+  color: white;
+}
+
+.text-center a:visited {
+  color: white;
+}
+
+.text-center a:hover {
+  color: white;
+}
+
+#elonText {
+  padding: 0 5rem 2rem 5rem;
+
+}
+
+html, body {
+  width: 100%;
+  height:100%;
+}
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

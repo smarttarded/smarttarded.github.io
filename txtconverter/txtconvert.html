@@ -1,0 +1,137 @@
+<style>
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --Navigation-Color: #262626;
+  --Font-Color: #ffffff;
+  --Selection-Color: #e60000;
+}
+
+::-moz-selection {
+  background-color: var(--Selection-Color);
+  color: var(--Font-Color);
+}
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 600% 600%;
+    animation: gradient 10s ease infinite;
+    border: 10px groove gray;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Main Content */
+.navbar {
+  display: block;
+  width: 100%;
+  height: 2vh;
+  background-color: var(--Navigation-Color);
+  text-align: center;
+  font-family: Arial;
+  color: var(--Font-Color);
+  padding: 1em 0;
+  font-weight: bold;
+  margin-bottom: 2vh;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 4%;
+  height: 50vh;
+  margin: 0 2vw;
+}
+
+#text,
+#binary {
+  display: block;
+  padding: 1em;
+  font-family: sans-serif;
+  font-size: 0.9em;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 4%;
+  height: 4vh;
+  margin: 3vh 2vw;
+}
+
+#clsText,
+#clsBinary {
+  display: block;
+  font-family: Arial;
+  background-color: inherit;
+  outline: none;
+  border: 1px solid var(--Navigation-Color);
+  box-shadow: 2px 2px 2px;
+}
+
+#clsText:active,
+#clsBinary:active {
+  position: relative;
+  top: 3px;
+  left: 3px;
+  box-shadow: none;
+}
+
+.footer {
+  display: block;
+  margin-top: 50vh;
+  margin-bottom: 3vh;
+  color: #222;
+  font-family: sans-serif;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+#text,
+#binary {
+  display: block;
+  padding: 1em;
+  font-family: sans-serif;
+  font-size: 0.9em;
+}
+</style>
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>GLUONG TXTCONVERT</title>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <div class="navbar">MEDIEVAL/OCTADECIMAL TEXT CONVERTER</div>
+  <div class="main">
+    <textarea type="text" name="text" id="text" onkeyup="toMedieval()" placeholder="ENTER TEXT HERE for conversion to MEDIEVAL"></textarea>
+    <textarea type="text" name="binary" id="binary" onkeyup="toBinary()" placeholder="ENTER TEXT HERE for conversion to OCTADEX"></textarea>
+  </div>
+  <div class="buttons">
+    <button onclick="$('#text').val(null);" id="clsText">CLEAR FORM</button>
+    <button onclick="$('#binary').val(null);" id="clsBinary">CLEAR FORM</button>
+  </div>
+  <div class="footer">a modified code from <a href="https://codepen.io/83338a"> 83338 </a></div>
+</div>
+<!-- partial -->
+  <script  src="./textscript.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Wallpoet&display=swap" rel="stylesheet">
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>GLUONG's ALGOCHEATS</title>
+  <meta name="viewport" http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./algocheatcss.css">
+</head>
+
+<body>
+  <ul class="nav">
+    <li class="button-dropdown">
+      <a href="javascript:void(0)" class="dropdown-toggle">
+        NUMERIC ALGORITHMS <span>▼</span>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="#sumall">
+            Drop Item 1
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            Drop Item 2
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            Drop Item 3
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="button-dropdown">
+      <a href="javascript:void(0)" class="dropdown-toggle">
+        STRING ALGORITHMS <span>▼</span>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="#">
+            asdf
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+<div class="container" id="container">
+                  <button onclick="$('#container').val(null);" id="clsText">CLEAR ALL</button>
+  <div class="numeric">
+    <form id="iterator">
+      <input type="text"
+             id="numeric1"
+             class="form-control"
+             placeholder="ENTER 1ST INT">
+      <input type="text"
+            id="numeric2"
+            class="form-control"
+            placeholder="ENTER 2ND INT">
+      <label for="name">ITERATE WITHIN TWO VALUES</label>
+      <button type="button" onclick="iterator()" class="submit-button">
+          SUBMIT
+      </button>
+    </form>
+    <form id="sumall">
+      <input type="text"
+             id="sum1"
+             class="form-control"
+             placeholder="ENTER INT">
+      <label for="name">SUM OF EVERY ITERATED VALUE</label>
+      <button type="button" onclick="sumAll()" class="submit-button">
+          SUBMIT
+      </button>
+    </form>
+    <form id="factorial">
+      <input type="text"
+             id="factorial1"
+             class="form-control"
+             placeholder="ENTER INT">
+      <label for="name">FACTORIAL OF VALUE</label>
+      <button type="button" onclick="factorialize()" class="submit-button">
+          SUBMIT
+      </button>
+    </form>
+    <form id="quicksort">
+      <input type="text"
+             id="quicksort1"
+             class="form-control"
+             placeholder="ENTER INT">
+      <label for="name">QUICK SORT OF CSV[BUGGY]</label>
+      <button type="button" onclick="quickSort($('#quicksort1').val())" class="submit-button">
+          SUBMIT
+      </button>
+    </form>
+    <form id="palindrome">
+      <input type="text"
+             id="string1"
+             class="form-control"
+             placeholder="ENTER string">
+            <label for="name">CHECK PALINDROME</label>
+            <button type="button" onclick="checkPalindrome()" class="submit-button">
+                SUBMIT
+            </button>
+      </form>
+      <form id="strReverse">
+        <input type="text"
+               id="reverse1"
+               class="form-control"
+               placeholder="ENTER string">
+              <label for="name">STRING REVERSAL</label>
+              <button type="button" onclick="reverseString()" class="submit-button">
+                  SUBMIT
+              </button>
+        </form>
+  </div>
+
+  <div class="result">
+    <textarea type="text" name="result" id="result" placeholder="result here"></textarea>
+    <button onclick="$('#result').val(null);">CLEAR RESULT</button>
+
+  </div>
+
+
+
+  <div class="stars"></div>
+<div class="moon"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+jQuery(document).ready(function (e) {
+    function t(t) {
+        e(t).bind("click", function (t) {
+            t.preventDefault();
+            e(this).parent().fadeOut()
+        })
+    }
+    e(".dropdown-toggle").click(function () {
+        var t = e(this).parents(".button-dropdown").children(".dropdown-menu").is(":hidden");
+        e(".button-dropdown .dropdown-menu").hide();
+        e(".button-dropdown .dropdown-toggle").removeClass("active");
+        if (t) {
+            e(this).parents(".button-dropdown").children(".dropdown-menu").toggle().parents(".button-dropdown").children(".dropdown-toggle").addClass("active")
+        }
+    });
+    e(document).bind("click", function (t) {
+        var n = e(t.target);
+        if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-menu").hide();
+    });
+    e(document).bind("click", function (t) {
+        var n = e(t.target);
+        if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-toggle").removeClass("active");
+    })
+});
+</script>
+<script type="text/javascript" src="./numericalgos.js"></script>
+<script type="text/javascript" src="./stringalgos.js"></script>
+<script type="text/javascript" src="./quicksort.js"></script>
+
+</body>
