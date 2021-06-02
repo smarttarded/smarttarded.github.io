@@ -3,11 +3,10 @@
 
 <!DOCTYPE html>
 <html lang="en" >
-
 <head>
   <meta charset="UTF-8">
   <title>GLUONG's ALGOCHEATS</title>
-  <meta name="viewport" http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" content="width=device-width, initial-scale=1">
+  <meta name="viewport" http-equiv="content-security-policy" content="upgrade-insecure-requests" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./algocheatcss.css">
 </head>
 
@@ -20,17 +19,17 @@
       <ul class="dropdown-menu">
         <li>
           <a href="#sumall">
-            Drop Item 1
+            SUM ALL
           </a>
         </li>
         <li>
-          <a href="#">
-            Drop Item 2
+          <a href="#factorial">
+            FACTORIAL
           </a>
         </li>
         <li>
-          <a href="#">
-            Drop Item 3
+          <a href="#quicksort">
+            QUICK SORT
           </a>
         </li>
       </ul>
@@ -41,15 +40,21 @@
       </a>
       <ul class="dropdown-menu">
         <li>
-          <a href="#">
-            asdf
+          <a href="#palindrone">
+            PALINDROME CHECK
+          </a>
+        </li>
+        <li>
+          <a href="#strReverse">
+            STRING REVERSE
           </a>
         </li>
       </ul>
     </li>
   </ul>
 <div class="container" id="container">
-                  <button onclick="$('#container').val(null);" id="clsText">CLEAR ALL</button>
+  <button onclick="$('#container').val(null);" id="clsText">CLEAR ALL</button>
+  <form name="algorithms">
   <div class="numeric">
     <form id="iterator">
       <input type="text"
@@ -111,21 +116,20 @@
                class="form-control"
                placeholder="ENTER string">
               <label for="name">STRING REVERSAL</label>
-              <button type="button" onclick="reverseString()" class="submit-button">
+              <button type="button" onclick="reverseString(); saveLocalStorage(type)" class="submit-button">
                   SUBMIT
               </button>
         </form>
-  </div>
+
 
   <div class="result">
     <textarea type="text" name="result" id="result" placeholder="result here"></textarea>
     <button onclick="$('#result').val(null);">CLEAR RESULT</button>
-
   </div>
+</form>
+</div>
 
-
-
-  <div class="stars"></div>
+<div class="stars"></div>
 <div class="moon"></div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -156,6 +160,6 @@ jQuery(document).ready(function (e) {
 </script>
 <script type="text/javascript" src="./numericalgos.js"></script>
 <script type="text/javascript" src="./stringalgos.js"></script>
-<script type="text/javascript" src="./quicksort.js"></script>
+<script type="text/javascript" src="./savelocalstorage.js"></script>
 
 </body>

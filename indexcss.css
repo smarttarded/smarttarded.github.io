@@ -21,6 +21,10 @@ h1 {
         animation-fill-mode: forwards
     }
 
+h2{
+  text-align: center;
+}
+
 @keyframes text-color {
     100% {
         color: azure;
@@ -169,8 +173,8 @@ button {
 
 
 .fish {
-  width: 500px;
-  border: 5px solid lightgrey;
+  width: 600px;
+  border: 3px solid lightgrey;
   border-radius: 15px;
   display: inline-block;
   margin-left: 17%;
@@ -205,7 +209,7 @@ button {
   width: auto;
   height: 100px;
   clear: both;
-  padding-top: 35px;
+  padding-top: 20px;
   font-size: 1.2em;
   text-align: center;
   text-transform: uppercase;
@@ -225,8 +229,8 @@ button {
   background-color: #333;
   outline: none;
   font-size: 0.85em;
-  padding: 8px 18px 6px 18px;
-  margin-top: 30px;
+  padding: 8px 12px 6px 18px;
+  margin-top: 20px;
   opacity: 1;
   cursor: pointer;
 }
@@ -253,7 +257,6 @@ button {
   position: center;
   width: 600px;
   margin-left: 23%;
-  margin-top: 1%;
   display: table;
 
 }
@@ -266,7 +269,7 @@ button {
   text-align: center;
   font-size: .5em;
   position: relative;
-  top: 50px;
+  top: 30px;
   left: 14%;
 }
 #primary_nav_wrap
