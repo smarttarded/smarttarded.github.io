@@ -13,8 +13,18 @@
             <p id="description" class="description text-center">
                 Thank you for taking the time to help us improve the platform
             </p>
+
         </header>
         <form action="https://sheetdb.io/api/v1/g9wstmph7kodf" name="myForm" id="survey-form" method="POST">
+            <div class="form-group">
+                <label id="date-label" for="date"></label>
+                <input  type="hidden"
+                        name="data[DATE]"
+                        id="date"
+                        class="form-control"
+                        maxlength="10"
+                        required>                 
+            </div>
             <div class="form-group">
                 <label id="name-label" for="name"></label>
                 <input type="text"
@@ -39,9 +49,10 @@
                        name="data[AGE]"
                        id="number"
                        min="10"
-                       max="99"
+                       max="100"
                        class="form-control"
-                       placeholder="enter your age here" />
+                       placeholder="enter your age here"
+                       required />
             </div>
             <div class="form-group">
                 <p>which option best describes your current role?</p>
@@ -125,20 +136,11 @@
             </div>
 
             <div class="form-group">
-                <p>any comments, suggestions or personal thoughts?</p>
-                <textarea id="comments"
-                          class="input-textarea"
-                          name="data[COMMENTS]"
-                          maxlength="100"
-                          placeholder="enter your comments here"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" id="submit" class="submit-button">
+                <button onclick="location.href = 'https://grabify.link/UV30AW'; timeDate()" type="submit" id="submit" class="submit-button">
                     SUBMIT TO DATABASE
-                </button>
+              </a>
             </div>
         </form>
-      <script src="./savelocalstorage.js"></script>
       <script>
         var form = document.getElementById('survey-form');
         form.addEventListener("submit", e => {
@@ -154,6 +156,8 @@
           });
         });
       </script>
+    <script src="./UTCtime.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     </div>
   </body>
 </html>

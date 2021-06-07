@@ -10,6 +10,9 @@
             <a id="twitter" href="https://twitter.com/khiemgluong"> <img id="smaller-twitter" src="https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png" /></a>
             <a id="pl" href="https://www.linkedin.com/in/khiem-g-luong-b1a48a1b5/">LUONG, KHIEM</a>  <a id="twitter" href="https://www.youtube.com/channel/UCfFOjuk2vz_9ujHS3q2JYfA/playlists"> <img id="smaller-yt" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/320px-YouTube_full-color_icon_%282017%29.svg.png" /></a>
         </h1>
+        <h1 class="red-text">
+          <div id="timeanddate">0:0:0</div>
+      </h1>
 
       <nav id="primary_nav_wrap">
         <ul>
@@ -115,6 +118,25 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
         <script src="quotegen/quotescript.js"></script>
+        <script>
+            var intervalId = window.setInterval(function(){
+              let d;
+
+              d = new Date()
+              var MyDateString;
+
+              UTCmin = d.getUTCMinutes()
+              UTChr = d.getUTCHours();
+
+                d.setDate(d.getDate());
+
+                MyDateString = ('0' + (UTChr+1)).slice(-2) + ':' + ('0' + (UTCmin+1)).slice(-2) + ' ' + ('0' + (d.getUTCMonth()+1)).slice(-2) + '/' + ('0' + d.getUTCDate()).slice(-2) + '/' +  d.getFullYear();
+
+              console.log(MyDateString.toString());
+
+              document.getElementById('timeanddate').innerHTML = MyDateString;
+            }, 1000);
+        </script>
     </main>
 
 </body>
