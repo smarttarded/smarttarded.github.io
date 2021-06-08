@@ -1,4 +1,6 @@
 function timeDate() {
+
+
     let d;
     d = new Date()
     var MyDateString;
@@ -16,11 +18,21 @@ function timeDate() {
     console.log(MyDateString.toString());
 
     document.getElementById('date').innerHTML = MyDateString.toString();
-
-
-  return $("#date").val($("#date").val() + MyDateString);
-
+    return $("#date").val($("#date").val() + MyDateString);
 }
+
+function validateForm() {
+  var a = document.forms["myForm"]["data[NAME]"].value;
+  var b = document.forms["myForm"]["data[EMAIL]"].value;
+  var c = document.forms["myForm"]["data[AGE]"].value;
+  if (a == null || a == "", b == null || b == "", c == null || c == "") {
+    alert("Please Fill All Required Field");
+    return false;
+  }
+  timeDate()
+}
+
+
 
 /*
 const ipURL = new URL('https://grabify.link/track/QTFJ8X');
