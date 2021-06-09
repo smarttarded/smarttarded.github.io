@@ -33,11 +33,29 @@ body {
 
 .blogForm{
   font-family: "Agency FB";
-  font-size: 28px;
+  font-size: 30px;
   text-transform: uppercase;
+  color: white;
+  line-height: 150%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+label{
+  color: lightblue;
+}
+
+#btnClose{
+  transform: scale(1.5);
+}
+
+#btnClose button{
+    color: grey;
+}
+
+#btnClose:hover{
+  transform: scale(2);
 }
