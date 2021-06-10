@@ -424,7 +424,7 @@ margin-top: 1%;
 
 
   .side {
-    background:  radial-gradient(farthest-corner at 50px 50px, #23d5ab 40%, #e73c7e 50%, #ee7752 60%);
+    background:  transparent;
     -ms-transform: rotate(90deg) skewX(-30deg) scaleY(0.864) translate(68px, -131px);
     -webkit-transform: rotate(90deg) skewX(-30deg) scaleY(0.864) translate(68px, -131px);
     transform: rotate(90deg) skewX(-30deg) scaleY(0.864) translate(68px, -131px);
