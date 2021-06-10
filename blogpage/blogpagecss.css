@@ -22,13 +22,14 @@ body {
 
 .box p{
   color: white;
-  text-align: center;
-  width: 70%;
+  text-align: justify;
+  width: 90%;
 }
 
 #imgcomment{
   font-family: "Mate SC";
   font-size: 20px;
+  text-align: center;
 }
 
 .blogForm{
