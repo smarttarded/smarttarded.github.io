@@ -111,9 +111,9 @@ html {
 }
 
 body {
-    background: linear-gradient(90deg, #969696, #727272, #727272 , #969696);
-    background-size: 100% 100%;
-    animation: gradient;
+    background: linear-gradient(90deg, #969696, #727272, #969696,  #ffffff);
+    background-size: 500% 500%;
+    animation: gradient 10s ease infinite;
     border: 10px groove gray;
 }
 
