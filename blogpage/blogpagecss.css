@@ -5,7 +5,7 @@ body {
 }
 
 .box {
-  font-family: "Agency FB";
+  font-family: "Agency FB", Helvetica;
   font-size: 28px;;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@ body {
 }
 
 .blogForm{
-  font-family: "Agency FB";
+  font-family: "Agency FB", Arial,sans-serif;
   font-size: 30px;
   text-transform: uppercase;
   color: white;

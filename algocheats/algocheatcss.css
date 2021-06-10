@@ -204,7 +204,7 @@ body {
 }
 
 label{
-  font-family: "Wallpoet";
+  font-family: "Wallpoet", Helvetica, Arial, sans-serif;
   display: inline-flex;
   align-items: center;
   font-size: 1.2rem;

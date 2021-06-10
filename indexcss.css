@@ -7,7 +7,7 @@
   grid-gap: 10px;
 }
 h1 {
-    font-family: "Wallpoet";
+    font-family: "Wallpoet", Helvetica;
     color: white;
     font-size: 68px;
     font-weight: 3;
@@ -33,13 +33,13 @@ h2{
 p{
     margin-left: 5%;
     font-size: 30px;
-    font-family: "DotGothic16";
+    font-family: "DotGothic16", Helvetica, Arial,sans-serif;
 }
 
 div {
     color: antiquewhite;
     font-size: 32px;
-    font-family: 'Agency FB';
+    font-family: 'Agency FB', Helvetica, Arial,sans-serif;
 }
 
 #pl {
@@ -296,7 +296,7 @@ button {
 	line-height:36px;
 	padding:0 10px;
 
-	font-family:"Wallpoet","Helvetica Neue",Helvetica,Arial,sans-serif
+	font-family:"Wallpoet","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 #primary_nav_wrap ul li
