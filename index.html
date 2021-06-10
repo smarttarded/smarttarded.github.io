@@ -1,6 +1,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Wallpoet&display=swap" rel="stylesheet">
 
+
+
 <html>
   <title>GLUONG MAIN</title>
 <body>
@@ -123,29 +125,68 @@
               </div>
             </div>
             <h1><a id="portfolio" href="https://github.com/smarttarded/smarttarded.github.io/blob/main/gluong-threejs.zip" target="_blank">DOWNLOAD MY THREE.JS (3D) PORTFOLIO HERE</a>
-
             </h1>
+            <div class='cube' id='div_id' style='z-index: -100'>
+              <div class='face front'></div>
+              <div class='face side'></div>
+              <div class='face top'></div>
+            </div>
+            <img id='backgroundimg' src="mountainpng2.png" alt="mountains" width="100%" height="85%">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
         <script src="quotegen/quotescript.js"></script>
         <script>
             var intervalId = window.setInterval(function(){
               let d;
-
               d = new Date()
               var MyDateString;
-
               UTCmin = d.getUTCMinutes()
               UTChr = d.getUTCHours();
-
-                d.setDate(d.getDate());
-
-                MyDateString = ('0' + (UTChr+1)).slice(-2) + ':' + ('0' + (UTCmin+1)).slice(-2) + ' ' + ('0' + (d.getUTCMonth()+1)).slice(-2) + '/' + ('0' + d.getUTCDate()).slice(-2) + '/' +  d.getFullYear();
-
-              console.log(MyDateString.toString());
-
+              d.setDate(d.getDate());
+              MyDateString = ('0' + (UTChr+1)).slice(-2) + ':' + ('0' + (UTCmin+1)).slice(-2) + ' ' + ('0' + (d.getUTCMonth()+1)).slice(-2) + '/' + ('0' + d.getUTCDate()).slice(-2) + '/' +  d.getFullYear();
               document.getElementById('timeanddate').innerHTML = MyDateString;
+
+
             }, 1000);
+        </script>
+        <script type="text/javascript">
+          let html = document.querySelector('html').getBoundingClientRect().width;
+            var i=1;
+            if(html < 1000)
+            {
+             while(i<55)
+                 {
+                  var element= document.getElementById("div_id");
+                  var clone = element.cloneNode(true);
+                  clone.id="div"+i;
+                  element.before(clone);
+                     i=i+1;
+                 }
+               }
+            if(html > 1200)
+            {
+             while(i<65)
+                 {
+                  var element= document.getElementById("div_id");
+                  var clone = element.cloneNode(true);
+                  clone.id="div"+i;
+                  element.before(clone);
+                     i=i+1;
+                 }
+               }
+            if(html > 1220)
+            {
+            while(i<130)
+                {
+
+                 var element= document.getElementById("div_id");
+                 var clone = element.cloneNode(true);
+                 clone.id="div"+i;
+                 element.before(clone);
+                    i=i+1;
+                }
+              }
+
         </script>
     </main>
 

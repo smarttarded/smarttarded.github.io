@@ -21,10 +21,13 @@ h1 {
         animation-fill-mode: forwards
     }
 
-h2{
-  text-align: center;
+#backgroundimg{
+  position: fixed;
+  z-index: -1;
+  left: 0%;
+  bottom: 0%;
+  opacity: 25%;
 }
-
 @keyframes text-color {
     100% {
         color: azure;
@@ -104,14 +107,16 @@ div {
 html {
   width: 100%;
   height:100%;
+
 }
 
 body {
-    background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 600% 600%;
-    animation: gradient 30s ease-in-out infinite;
+    background: linear-gradient(90deg, #969696, #727272, #727272 , #969696);
+    background-size: 100% 100%;
+    animation: gradient;
     border: 10px groove gray;
 }
+
 
 @keyframes gradient {
     0% {
@@ -374,3 +379,53 @@ margin-left: auto;
 margin-right: auto;
 margin-top: 1%;
 }
+
+
+.cube {
+  float: left;
+  width: 200px;
+  height: 240px;
+  position: relative;
+  overflow-y: hidden;
+  bottom: 3300px;
+  left: 60px;
+  z-index: 2;
+
+}
+
+.face {
+  transform-origin: 0 0;
+  position: absolute;
+    width: 100px;
+    height: 100px;
+  }
+
+.face:hover{
+  width: 110px;
+  height: 110px;
+}
+
+
+  .front {
+    background:  linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    -ms-transform: rotate(-30deg) skewX(-30deg) translate(130px, 172px) scaleY(0.864);
+    -webkit-transform: rotate(-30deg) skewX(-30deg) translate(130px, 172px) scaleY(0.864);
+    transform: rotate(-30deg) skewX(-30deg) translate(130px, 172px) scaleY(0.864);
+
+  }
+
+
+  .top {
+    background:  linear-gradient(180deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    -ms-transform: rotate(210deg) skew(-30deg) translate(-200px, -60px) scaleY(0.864);
+    -webkit-transform: rotate(210deg) skew(-30deg) translate(-200px, -60px) scaleY(0.864);
+    transform: rotate(210deg) skew(-30deg) translate(-200px, -60px) scaleY(0.864);
+  }
+
+
+  .side {
+    background:  radial-gradient(farthest-corner at 50px 50px, #23d5ab 40%, #e73c7e 50%, #ee7752 60%);
+    -ms-transform: rotate(90deg) skewX(-30deg) scaleY(0.864) translate(68px, -131px);
+    -webkit-transform: rotate(90deg) skewX(-30deg) scaleY(0.864) translate(68px, -131px);
+    transform: rotate(90deg) skewX(-30deg) scaleY(0.864) translate(68px, -131px);
+  }
