@@ -46,9 +46,9 @@ div {
 }
 
 #pl {
-    color: antiquewhite;
+    color: white;
     font-size: 64px;
-    font-family: 18thCentury;
+    font-family: "Wallpoet", Helvetica;
     text-align: center;
     margin-top: 3%;
 }
@@ -111,7 +111,7 @@ html {
 }
 
 body {
-    background: linear-gradient(90deg, #969696, #727272, #969696,  #ffffff);
+    background: linear-gradient(90deg, #969696, #727272, #969696,  #727272);
     background-size: 500% 500%;
     animation: gradient 10s ease infinite;
     border: 10px groove gray;
@@ -224,7 +224,7 @@ button {
 #quote-box .buttons {
   width: 500px;
   margin: auto;
-  display: block;
+  display: none;
 }
 #quote-box .buttons .button {
   height: 40px;
@@ -281,6 +281,7 @@ button {
 {
 	margin:-50px 100%;
   position: fixed;
+  top: 140px;
 }
 
 #primary_nav_wrap ul
@@ -288,18 +289,24 @@ button {
 	list-style:none;
 	position:fixed;
 	margin:100px -200px;
+
+  top: 200px;
 }
 
 #primary_nav_wrap ul a
 {
 	display:inline-table;
-  text-align: left;
+  text-align: center;
+  width: 300px;
 	color:white;
 	text-decoration:none;
 	font-weight:700;
-	font-size:28px;
-	line-height:36px;
-	padding:0 10px;
+	font-size:32px;
+	line-height:40px;
+	padding:10px 10px;
+  margin-top: 10px;
+  background:  linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+
 
 	font-family:"Wallpoet","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
@@ -323,7 +330,6 @@ button {
 	position:absolute;
 	top:100%;
 	right: 300px;
-	background:;
 	padding:0
 }
 
@@ -337,6 +343,7 @@ button {
 {
 	line-height:100%;
 	padding:10px 10px
+
 }
 
 #primary_nav_wrap ul ul ul
@@ -345,10 +352,12 @@ button {
 	left:100%
 }
 
+/*
 #primary_nav_wrap ul li:hover > ul
 {
-	display:inline-block
+	display:inline-block;
 }
+*/
 
 li{
 direction:rtl;
@@ -382,6 +391,7 @@ margin-top: 1%;
 
 
 .cube {
+  display: none;
   float: left;
   width: 200px;
   height: 240px;

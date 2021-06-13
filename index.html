@@ -8,6 +8,9 @@
 <body>
     <main>
       <link rel="stylesheet" href="indexcss.css">
+      <link rel="stylesheet" href="sidebarcss.css">
+
+
         <h1 class="red-text">
             <a id="twitter" href="https://twitter.com/khiemgluong"> <img id="smaller-twitter" src="https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png" /></a>
             <a id="pl" href="https://www.linkedin.com/in/khiem-g-luong-b1a48a1b5/">LUONG, KHIEM</a>  <a id="twitter" href="https://www.youtube.com/channel/UCfFOjuk2vz_9ujHS3q2JYfA/playlists"> <img id="smaller-yt" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/320px-YouTube_full-color_icon_%282017%29.svg.png" /></a>
@@ -18,8 +21,15 @@
 
       <nav id="primary_nav_wrap">
         <ul>
-          <li><a href="#"><img class="smaller-image thick-green-border" src="https://avatars.githubusercontent.com/u/78592170?v=4" alt="me"></a>
-            <ul>
+          <li>
+            <input type="checkbox" onclick='handleClick()' class="openSidebarMenu" id="openSidebarMenu">
+            <label for="openSidebarMenu" class="sidebarIconToggle">
+              <div class="spinner diagonal part-1"></div>
+              <div class="spinner horizontal"></div>
+              <div class="spinner diagonal part-2"></div>
+            </label>
+            <ul class='otherPages'>
+              <li><a href="reactchat/index.html">REACT CHAT</a></li>
               <li><a href="blogpage/blogpage.html">MY BLOG PAGE</a></li>
               <li><a href="txtconverter/txtconvert.html">TXT CONVERTER</a></li>
               <li><a href="algocheats/algocheat.html">ALGO CHEATS</a></li>
@@ -31,6 +41,8 @@
           </li>
         </ul>
       </nav>
+
+
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
 
@@ -67,7 +79,23 @@
 
                   <link rel="stylesheet" href="image.css">
                   <script type="module" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/130527/vanilla-tilt.min.js"></script>
-
+                  <div id="quote-box">
+                    <div class="quote-text">
+                      <i class="fa fa-quote"> </i><span id="text"></span>
+                    </div>
+                    <div class="quote-author"> <span id="author"></span></div>
+                    <div class="buttons">
+                      <a
+                        class="button"
+                        id="tweet-quote"
+                        title="Tweet this quote!"
+                        target="_top"
+                      >
+                        <i class="fa fa-twitter"></i>
+                      </a>
+                      <button class="button" id="new-quote">NEW QUOTE</button>
+                    </div>
+                  </div>
                   <div class="water" data-tilt data-tilt-max="20" data-tilt-speed="100" data-tilt-perspective="1000">
                     <a href="https://youtu.be/GJu4nUIQB6U" target="_blank">
                   <img src="https://i.imgur.com/OJAT3AS.png" class="fish" alt="dog render">
@@ -94,34 +122,7 @@
                   ></iframe>
                 </section>
 
-                  <div id="quote-box">
-                    <div class="quote-text">
-                      <i class="fa fa-quote"> </i><span id="text"></span>
-                    </div>
-                    <div class="quote-author"> <span id="author"></span></div>
-                    <div class="buttons">
 
-                      <a
-                        class="button"
-                        id="tweet-quote"
-                        title="Tweet this quote!"
-                        target="_top"
-                      >
-                        <i class="fa fa-twitter"></i>
-                      </a>
-                      <!--
-                      <a
-                        class="button"
-                        id="tumblr-quote"
-                        title="Post this quote on tumblr!"
-                        target="_blank"
-                      >
-                        <i class="fa fa-tumblr"></i>
-                      </a>
-                      -->
-                      <button class="button" id="new-quote">NEW QUOTE</button>
-                    </div>
-                  </div>
               </div>
             </div>
             <h1><a id="portfolio" href="https://github.com/smarttarded/smarttarded.github.io/blob/main/gluong-threejs.zip" target="_blank">DOWNLOAD MY THREE.JS (3D) PORTFOLIO HERE</a>
@@ -152,9 +153,7 @@
         <script type="text/javascript">
           let html = document.querySelector('html').getBoundingClientRect().width;
             var i=1;
-            if(html < 1000)
-            {
-             while(i<56)
+             while(i<8)
                  {
                   var element= document.getElementById("div_id");
                   var clone = element.cloneNode(true);
@@ -162,32 +161,24 @@
                   element.before(clone);
                      i=i+1;
                  }
-               }
-            if(html > 1200)
-            {
-             while(i<65)
-                 {
-                  var element= document.getElementById("div_id");
-                  var clone = element.cloneNode(true);
-                  clone.id="div"+i;
-                  element.before(clone);
-                     i=i+1;
-                 }
-               }
-            if(html > 1220)
-            {
-            while(i<91)
-                {
-
-                 var element= document.getElementById("div_id");
-                 var clone = element.cloneNode(true);
-                 clone.id="div"+i;
-                 element.before(clone);
-                    i=i+1;
-                }
-              }
-
         </script>
+        <script type="text/javascript">
+          function handleClick() {
+            var otherPagesChkBx = document.getElementById('openSidebarMenu')
+            var otherPages = $( "ul.otherPages" );
+
+            if(otherPagesChkBx.checked)
+            {
+                otherPages.css( "display", "inline-block")
+            }
+            if(!otherPagesChkBx.checked)
+            {
+              otherPages.css( "display", "none")
+            }
+          console.log(otherPagesChkBx.checked ? 'on' : 'off');
+
+        }
+    </script>
     </main>
 
 </body>
