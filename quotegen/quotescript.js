@@ -102,3 +102,10 @@ $(document).ready(function () {
 
   $('#new-quote').on('click', getQuote);
 });
+
+var intervalQuote = window.setInterval(function(){
+  getQuotes().then(() => {
+    getQuote();
+  });
+  $('#new-quote').on('click', getQuote);
+}, 3000);
