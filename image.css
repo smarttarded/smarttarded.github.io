@@ -1,8 +1,8 @@
 .water {
 max-width: 600px;
 height: 500px;
+z-index: -1;
 position: relative;
-
 background-size: cover;
 -webkit-transform-style: preserve-3d;
 transform-style: preserve-3d;
@@ -21,6 +21,11 @@ top: 50%;
 -ms-transform: translate(-50%, -50%) translateZ(50px);
 -o-transform: translate(-50%, -50%) translateZ(50px);
 transform: translate(-50%, -50%) translateZ(50px);
+width: 600px;
+border: 3px solid lightgrey;
+border-radius: 15px;
+display: inline-block;
+margin-left: 17%;
 }
 
 @media (max-width: 768px) {
