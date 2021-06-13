@@ -281,7 +281,6 @@ button {
 {
 	margin:-50px 100%;
   position: fixed;
-
 }
 
 #primary_nav_wrap ul
@@ -290,7 +289,7 @@ button {
 	position:fixed;
 	margin:100px -200px;
 
-  top: 80px;
+  top: 180px;
 }
 
 #primary_nav_wrap ul a
