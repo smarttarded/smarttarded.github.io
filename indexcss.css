@@ -130,18 +130,6 @@ body {
     }
 }
 
-#portfolio{
-  text-align: inherit;
-  font-size: 36;
-  font-family: inherit;
-  margin: 300 10 10 100;
-  color: inherit;
-}
-
-#portfolio:hover{
-  color: lightgray;
-}
-
 #twitter {
     font-size: 32px;
     font-family: monospace;
