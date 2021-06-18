@@ -1,5 +1,5 @@
 function toMedieval() {
-  var text = $("#text").val();
+  var text = $("#medievaltext").val();
   clear("#binary");
   vowelArr = ['a', 'e', 'ae', 'ei']
 
@@ -59,15 +59,15 @@ function toMedieval() {
                   .replaceAll(/\bspeak\b/g, "sp" + randomElement2 + "ak");
 
     var output= replace.replace(/(.)\1+/g, '$1')
-    $("#binary").val($("#binary") + output);
+    $("#medievaltext").val($("#medievaltext") + output);
 }
 
-function toBinary() {
-  var binary = $("#binary").val();
-  clear("#text");
+function toHex() {
+  var binary = $("#hextext").val();
+  clear("#hextext");
   for (i = 0; i < binary.length; i++) {
-    var output1 = binary[i].charCodeAt(0).toString(8) + " ";
-    $("#text").val($("#text").val() + output1);
+    var output1 = binary[i].charCodeAt(0).toString(16) + " ";
+    $("#hextext").val($("#hextext").val() + output1);
   }
 }
 

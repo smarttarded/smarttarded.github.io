@@ -34,26 +34,40 @@ body {
     }
 }
 
+label{
+  text-align: center;
+  font-family: monospace, sans-serif;
+  color: white;
+}
+
+div{
+  text-align: center;
+  font-family: monospace, sans-serif;
+  color: white;
+  font-size: 28px;
+}
+
 /* Main Content */
 .navbar {
   display: block;
   width: 100%;
-  height: 2vh;
+  height: 3vh;
   background-color: var(--Navigation-Color);
   text-align: center;
   font-family: Arial;
   color: var(--Font-Color);
   padding: 1em 0;
   font-weight: bold;
-  margin-bottom: 2vh;
+  margin-bottom: 4vh;
 }
 
 .main {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 4%;
-  height: 50vh;
-  margin: 0 2vw;
+  grid-template-rows: repeat(4, auto);
+  grid-column-gap: 5%;
+  grid-row-gap: 1%;
+  height: 200vh;
+  margin: 0 5vw 0 5vw;
 }
 
 #text,
@@ -61,15 +75,17 @@ body {
   display: block;
   padding: 1em;
   font-family: sans-serif;
-  font-size: 0.9em;
+  font-size: 1.5em;
 }
 
 .buttons {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 4%;
-  height: 4vh;
-  margin: 3vh 2vw;
+  grid-template-columns: repeat(2, auto);
+  grid-column-gap: 1%;
+  grid-row-gap: 1%;
+  height: 5vh;
+  margin: 2vw;
+  margin-bottom: 0;
 }
 
 #clsText,
@@ -93,7 +109,7 @@ body {
 .footer {
   display: block;
   margin-top: 50vh;
-  margin-bottom: 3vh;
+  margin-bottom: 1vh;
   color: #222;
   font-family: sans-serif;
   font-size: 0.8em;
@@ -119,19 +135,79 @@ body {
 <body>
 <!-- partial:index.partial.html -->
 <div class="container">
-  <div class="navbar">MEDIEVAL/OCTADECIMAL TEXT CONVERTER</div>
+  <div class="navbar">TEXT CONVERTER-ENCRYPTION SET</div>
   <div class="main">
-    <textarea type="text" name="text" id="text" onkeyup="toMedieval()" placeholder="ENTER TEXT HERE for conversion to MEDIEVAL"></textarea>
-    <textarea type="text" name="binary" id="binary" onkeyup="toBinary()" placeholder="ENTER TEXT HERE for conversion to OCTADEX"></textarea>
-  </div>
-  <div class="buttons">
-    <button onclick="$('#text').val(null);" id="clsText">CLEAR FORM</button>
-    <button onclick="$('#binary').val(null);" id="clsBinary">CLEAR FORM</button>
-  </div>
+    <textarea type="text" name="medievaltext" id="medievaltext"  placeholder="ENTER TEXT HERE for conversion to MEDIEVAL"></textarea>
+    <div class="buttons">
+      <button onclick="toMedieval()" id="clsText">SUBMIT FORM</button>
+      <button onclick="$('#medievaltext').val(null);" id="clsBinary">CLEAR FORM</button>
+    </div>
+
+    <textarea type="text" name="hextext" id="hextext" placeholder="ENTER TEXT HERE for conversion to HEXADECIMAL"></textarea>
+    <div class="buttons">
+      <button onclick="toHex()" id="clsText">SUBMIT FORM</button>
+      <button onclick="$('#hextext').val(null);" id="clsBinary">CLEAR FORM</button>
+    </div>
+
+    <textarea type="text" name="encrypt" id="encrypt"  placeholder="ENTER TEXT HERE to ENCRYPT"></textarea>
+    <textarea type="text" name="encrypt2" id="encrypt2" placeholder="ENTER PASSPHRASE HERE (optional)"></textarea>
+    <div class="buttons">
+      <button onclick="EncryptText()" id="clsText">SUBMIT FORM</button>
+      <button onclick="$('#encrypt').val(null); $('#encrypt2').val(null)" id="clsBinary">CLEAR FORM</button>
+    </div>
+    <label>ENCRYPTED</label>
+    <div id="demo1"></div>
+
+    <textarea type="text" name="decrypt" id="decrypt" placeholder="ENTER ENCRYPTED TEXT HERE"></textarea>
+    <textarea type="text" name="decrypt2" id="decrypt2" placeholder="ENTER PASSPHRASE HERE (must match encrypted passphrase)"></textarea>
+    <div class="buttons">
+      <button onclick="DecryptText()" id="clsText">SUBMIT FORM</button>
+      <button onclick="$('#decrypt').val(null); $('#decrypt2').val(null)" id="clsBinary">CLEAR FORM</button>
+    </div>
+
+    <label>DECRYPTED</label>
+    <div id="demo2"></div>
+
+    <div class="buttons">
+      <button onclick="DecryptString()" id="clsText">CONVERT TO ORIGINAL</button>
+      <button onclick="document.getElementById('demo2').innerHTML = null; document.getElementById('demo3').innerHTML = null" id="clsBinary">CLEAR FORM</button>
+    </div>
+    <label>ORIGINAL</label>
+    <div id="demo3"></div>
+
+    </div>
   <div class="footer">a modified code from <a href="https://codepen.io/83338a"> 83338 </a></div>
 </div>
 <!-- partial -->
   <script  src="./textscript.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+
+<script>
+  function EncryptText()
+  {
+    var encrypted = CryptoJS.AES.encrypt($("#encrypt").val(), $("#encrypt2").val());
+    clear('#encrypt');
+    //clear('#encrypt2');
+  document.getElementById("demo1").innerHTML = encrypted;
+  //document.getElementById("decrypt2").innerHTML = decrypted.toString(CryptoJS.enc.Utf8)
+  }
+
+  function DecryptText()
+  {
+    var decrypted = CryptoJS.AES.decrypt($("#decrypt").val(), $("#encrypt2").val());
+    document.getElementById("demo2").innerHTML = decrypted;
+    return decrypted;
+  }
+
+  function DecryptString()
+  {
+    var test = DecryptText();
+    document.getElementById("demo3").innerHTML = test.toString(CryptoJS.enc.Utf8);
+  }
+
+
+</script>
 </body>
 </html>
