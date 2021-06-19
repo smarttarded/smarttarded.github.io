@@ -179,6 +179,7 @@
           var list = document.getElementById("matrix");
 
           list.insertBefore(canvas, list.childNodes[0]);
+          //construct the canvas element and set its properties
 
         draw();
 
@@ -187,11 +188,12 @@
         var stripCount = 70, stripX = new Array(), stripY = new Array(), dY = new Array(), stripFontSize = new Array();
 
         for (var i = 0; i < stripCount; i++) {
-          stripX[i] = Math.floor(Math.random()*1265);
+          stripX[i] = Math.floor(Math.random()*1500);
           stripY[i] = -100;
           dY[i] = Math.floor(Math.random()*8)+ 5;
           stripFontSize[i] = Math.floor(Math.random()*16)+8;
         }
+        //randomize where the strips will instantiate on the x axis
 
         var theColors = ['#cefbe4', '#81ec72', '#5cd646', '#54d13c', '#4ccc32', '#43c728'];
 
@@ -217,6 +219,7 @@
                   context.fillText(randChar, x, y);
               }
             y -= stripFontSize[k];
+            //iterate through each strip and change its color and text character
         }
     }
 
@@ -243,6 +246,7 @@
             stripY[j] += dY[j];
         }
       setTimeout(draw, 60);
+      //how fast the strips are drawn
     }
         </script>
 
