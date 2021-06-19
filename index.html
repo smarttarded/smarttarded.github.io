@@ -21,7 +21,8 @@
         <h1 class="red-text">
           <div id="timeanddate">0:0:0</div>
       </h1>
-
+      <div id='matrix'>
+      </div>
       <nav id="primary_nav_wrap">
         <ul>
           <li>
@@ -99,6 +100,7 @@
                       <button class="button" id="new-quote">NEW QUOTE</button>
                     </div>
                   </div>
+
                   <div class="water" data-tilt data-tilt-max="20" data-tilt-speed="100" data-tilt-perspective="1000">
                     <a href="https://youtu.be/GJu4nUIQB6U" target="_blank">
                   <img src="https://i.imgur.com/OJAT3AS.png" class="fish" alt="dog render">
@@ -144,11 +146,7 @@
               <a id="pl" href="https://github.com/smarttarded/smarttarded.github.io/blob/main/gluong-threejs.zip" target="_blank">DOWNLOAD MY THREE.JS (3D) PORTFOLIO HERE</a>
             </h1>
             -->
-            <div class='cube' id='div_id' style='z-index: -100'>
-              <div class='face front'></div>
-              <div class='face side'></div>
-              <div class='face top'></div>
-            </div>
+
             <img id='backgroundimg' src="mountainpng2.png" alt="mountains" width="100%" height="85%">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
@@ -164,22 +162,94 @@
               MyDateString = ('0' + (UTChr+1)).slice(-2) + ':' + ('0' + (UTCmin+1)).slice(-2) + ' ' + ('0' + (d.getUTCMonth()+1)).slice(-2) + '/' + ('0' + d.getUTCDate()).slice(-2) + '/' +  d.getFullYear();
               document.getElementById('timeanddate').innerHTML = 'UTC TIME: ' + MyDateString;
 
-
             }, 1000);
         </script>
+
         <script type="text/javascript">
-          let html = document.querySelector('html').getBoundingClientRect().width;
-            var i=1;
-             while(i<8)
-                 {
-                  var element= document.getElementById("div_id");
-                  var clone = element.cloneNode(true);
-                  clone.id="div"+i;
-                  element.before(clone);
-                     i=i+1;
-                 }
+          var canvas = document.body.appendChild( document.createElement('canvas')),
+          context = canvas.getContext( '2d' );
+          context.globalCompositeOperation = 'lighter';
+          canvas.width = 800;
+          canvas.height = 3000;
+          canvas.style.zIndex = -2;
+          canvas.style.position = "fixed";
+          canvas.style.margin = "10px 60px 5px";
+
+          var list = document.getElementById("matrix");
+
+          list.insertBefore(canvas, list.childNodes[0]);
+
+        draw();
+
+      var textStrip = ['诶', '比', '西', '迪', '伊', '吉', '艾', '杰', '开', '哦', '屁', '提', '维'];
+
+      var stripCount = 70, stripX = new Array(), stripY = new Array(), dY = new Array(), stripFontSize = new Array();
+
+      for (var i = 0; i < stripCount; i++) {
+        stripX[i] = Math.floor(Math.random()*1265);
+        stripY[i] = -100;
+        dY[i] = Math.floor(Math.random()*8)+ 5;
+        stripFontSize[i] = Math.floor(Math.random()*16)+8;
+    }
+
+    var theColors = ['#cefbe4', '#81ec72', '#5cd646', '#54d13c', '#4ccc32', '#43c728'];
+
+    var elem, context, timer;
+
+    function drawStrip(x, y) {
+        for (var k = 0; k <= 20; k++) {
+            var randChar = textStrip[Math.floor(Math.random()*textStrip.length)];
+            if (context.fillText) {
+                switch (k) {
+                case 0:
+                    context.fillStyle = theColors[0]; break;
+                case 1:
+                    context.fillStyle = theColors[1]; break;
+                case 3:
+                    context.fillStyle = theColors[2]; break;
+                case 7:
+                    context.fillStyle = theColors[3]; break;
+                case 13:
+                    context.fillStyle = theColors[4]; break;
+                case 17:
+                    context.fillStyle = theColors[5]; break;
+                }
+                context.fillText(randChar, x, y);
+            }
+          y -= stripFontSize[k];
+      }
+  }
+
+  function draw() {
+      // clear the canvas and set the properties
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.shadowOffsetX = context.shadowOffsetY = 0;
+      context.shadowBlur = 8;
+      context.shadowColor = '#94f475';
+
+      for (var j = 0; j < stripCount; j++) {
+          context.font = stripFontSize[j]+'px MatrixCode';
+          context.textBaseline = 'top';
+          context.textAlign = 'center';
+
+          if (stripY[j] > 1358) {
+              stripX[j] = Math.floor(Math.random()*canvas.width);
+              stripY[j] = -100;
+              dY[j] = Math.floor(Math.random()*7)+5;
+              stripFontSize[j] = Math.floor(Math.random()*16)+8;
+              drawStrip(stripX[j], stripY[j]);
+          } else drawStrip(stripX[j], stripY[j]);
+
+          stripY[j] += dY[j];
+      }
+    setTimeout(draw, 60);
+  }
+
+
         </script>
+
         <script type="text/javascript">
+            $( "ul.otherPages" ).css( "display", "none")
           function handleClick() {
             var otherPagesChkBx = document.getElementById('openSidebarMenu')
             var otherPages = $( "ul.otherPages" );

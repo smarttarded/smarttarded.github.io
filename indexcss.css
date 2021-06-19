@@ -190,7 +190,7 @@ button {
   height: auto;
   clear: both;
   font-weight: 500;
-  font-size: 1.2em;
+  font-size: 1em;
   text-transform: uppercase;
 }
 #quote-box .quote-text i {
@@ -203,7 +203,7 @@ button {
   height: 100px;
   clear: both;
   padding-top: 20px;
-  font-size: 1.2em;
+  font-size: 1.1em;
   text-align: center;
   text-transform: uppercase;
 
@@ -299,6 +299,7 @@ button {
 
 	font-family:"Wallpoet","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+
 
 #primary_nav_wrap ul li
 {
