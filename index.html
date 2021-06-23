@@ -13,6 +13,7 @@
         <link rel="shortcut icon" href="favicon.ico?" type="image/x-icon"/>
         <link rel="stylesheet" href="indexcss.css">
         <link rel="stylesheet" href="sidebarcss.css">
+        <link rel="stylesheet" href="button.css">
 
           <h1 class="red-text">
               <a id="twitter" href="https://twitter.com/khiemgluong"> <img id="smaller-twitter" src="https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png" /></a>
@@ -71,6 +72,9 @@
                   allowfullscreen
                   name="imagescrapeobjectid"
                 ></iframe>
+                <div id='webscrape'>
+                  <a href="https://drive.google.com/file/d/12QT-Er-zUbDqjJh4vPdL0SBf1VQDNfIw/view?usp=sharing" target="_blank">download my webscrape app from the video above</a>
+                </div>
                 <iframe
                   id="video"
                   height="315"
@@ -102,40 +106,48 @@
                     </div>
                   </div>
 
-                  <div class="water" data-tilt data-tilt-max="20" data-tilt-speed="100" data-tilt-perspective="1000">
-                    <a href="https://youtu.be/GJu4nUIQB6U" target="_blank">
-                  <img src="https://i.imgur.com/OJAT3AS.png" class="fish" alt="dog render">
-                  </a>
+                  <div class="btn">
+                    <div class="btn-back" onclick="hideArt()">SHOW ART</div>
+                    <div class="btn-front" onclick="showArt()">HIDE ART</div>
                   </div>
-                  <div class="water" data-tilt data-tilt-max="20" data-tilt-speed="100" data-tilt-perspective="1000">
-                   <a href="https://www.youtube.com/watch?v=a3lcGnMhvsA" target="_blank">
-                  <img src="https://i.imgur.com/iIhRset.gif" class="fish" alt="alt realities">
-                  </a>
-                  </div>
-                  <div class="water" data-tilt data-tilt-max="20" data-tilt-speed="100" data-tilt-perspective="1000">
-                   <a href="https://youtu.be/ENyfYD87IMM" target="_blank">
-                  <img src="https://i.imgur.com/HnqeBJY.gif" class="fish" alt="endless">
-                  </a>
-                  </div>
-              <section id="how-it-works">
-                  <iframe
-                    id="video"
-                    height="315"
-                    src="https://www.youtube-nocookie.com/embed/aC2RPyaTnN4?rel=0&amp;controls=0&amp;showinfo=0"
-                    frameborder="0"
-                    allowfullscreen
-                    name="medievalgame"
-                  ></iframe>
-                  <iframe
-                    id="video"
-                    height="315"
-                    src="https://www.youtube-nocookie.com/embed/HgMpY0PQZng?rel=0&amp;controls=0&amp;showinfo=0"
-                    frameborder="0"
-                    allowfullscreen
-                    name="unrealngin5"
-                  ></iframe>
-                </section>
-
+                  
+                  <article id="artCol">
+                    <div id='parallaximg'>
+                      <div class="water" data-tilt data-tilt-max="20" data-tilt-speed="100" data-tilt-perspective="1000">
+                        <a href="https://youtu.be/GJu4nUIQB6U" target="_blank">
+                      <img src="https://i.imgur.com/OJAT3AS.png" class="fish" alt="dog render">
+                      </a>
+                      </div>
+                      <div class="water" data-tilt data-tilt-max="20" data-tilt-speed="100" data-tilt-perspective="1000">
+                      <a href="https://www.youtube.com/watch?v=a3lcGnMhvsA" target="_blank">
+                      <img src="https://i.imgur.com/iIhRset.gif" class="fish" alt="alt realities">
+                      </a>
+                      </div>
+                      <div class="water" data-tilt data-tilt-max="20" data-tilt-speed="100" data-tilt-perspective="1000">
+                      <a href="https://youtu.be/ENyfYD87IMM" target="_blank">
+                      <img src="https://i.imgur.com/HnqeBJY.gif" class="fish" alt="endless">
+                      </a>
+                      </div>
+                    </div>
+                      <section id="how-it-works">
+                      <iframe
+                        id="video"
+                        height="315"
+                        src="https://www.youtube-nocookie.com/embed/aC2RPyaTnN4?rel=0&amp;controls=0&amp;showinfo=0"
+                        frameborder="0"
+                        allowfullscreen
+                        name="medievalgame"
+                      ></iframe>
+                      <iframe
+                        id="video"
+                        height="315"
+                        src="https://www.youtube-nocookie.com/embed/HgMpY0PQZng?rel=0&amp;controls=0&amp;showinfo=0"
+                        frameborder="0"
+                        allowfullscreen
+                        name="unrealngin5"
+                      ></iframe>
+                  </section>
+                </article>
 
               </div>
             </div>
@@ -222,7 +234,6 @@
             //iterate through each strip and change its color and text character
         }
     }
-
     function draw() {
         // clear the canvas and set the properties
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -251,6 +262,7 @@
         </script>
 
         <script type="text/javascript">
+            document.getElementById("artCol").style.display = "none";
             $( "ul.otherPages" ).css( "display", "none")
           function handleClick() {
             var otherPagesChkBx = document.getElementById('openSidebarMenu')
@@ -267,6 +279,55 @@
           console.log(otherPagesChkBx.checked ? 'on' : 'off');
 
         }
+    </script>
+    <script>
+      var btn = document.querySelector( '.btn' );
+
+      var btnFront = btn.querySelector( '.btn-front' ),
+          btnYes = btn.querySelector( '.btn-back' )
+
+
+      btnFront.addEventListener( 'click', function( event ) {
+        var mx = event.clientX - btn.offsetLeft,
+            my = event.clientY - btn.offsetTop;
+
+        var w = btn.offsetWidth,
+            h = btn.offsetHeight;
+        
+        var directions = [
+          { id: 'top', x: w/2, y: 0 },
+          { id: 'right', x: w, y: h/2 },
+          { id: 'bottom', x: w/2, y: h },
+          { id: 'left', x: 0, y: h/2 }
+        ];
+        
+        directions.sort( function( a, b ) {
+          return distance( mx, my, a.x, a.y ) - distance( mx, my, b.x, b.y );
+        } );
+        
+        btn.setAttribute( 'data-direction', directions.shift().id );
+        btn.classList.add( 'is-open' );
+
+      } );
+
+      btnYes.addEventListener( 'click', function( event ) {	
+        btn.classList.remove( 'is-open' );
+      } );
+      console.log(btn.classList);
+
+      function distance( x1, y1, x2, y2 ) {
+        var dx = x1-x2;
+        var dy = y1-y2;
+        return Math.sqrt( dx*dx + dy*dy );
+      }
+
+      function showArt(){
+        document.getElementById("artCol").style.display = "none";
+      }
+      function hideArt(){
+        document.getElementById("artCol").style.display = "grid";
+        document.getElementsByClassName("parallaximg").style.display = "inline-block";
+      }
     </script>
     </main>
 
