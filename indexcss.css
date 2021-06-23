@@ -45,6 +45,14 @@ div {
     font-family: 'Agency FB', Helvetica, Arial,sans-serif;
 }
 
+#webscrape{
+  text-align: center;
+  color: white;
+  font-family: 'Agency FB', Helvetica, Arial,sans-serif;
+  font-size: 28px;
+  margin: 5px 20px 35px;
+}
+
 #pl {
     color: white;
     font-size: 64px;
@@ -190,11 +198,11 @@ button {
   height: auto;
   clear: both;
   font-weight: 500;
-  font-size: 1em;
+  font-size: .9em;
   text-transform: uppercase;
 }
 #quote-box .quote-text i {
-  font-size: 1em;
+  font-size: .9em;
   margin-right: 0.4em;
 
 }
