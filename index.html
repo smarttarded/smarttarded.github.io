@@ -16,8 +16,15 @@
         <link rel="stylesheet" href="button.css">
 
           <h1 class="red-text">
-              <a id="twitter" href="https://twitter.com/khiemgluong"> <img id="smaller-twitter" src="https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png" /></a>
-              <a id="pl" href="https://www.linkedin.com/in/khiem-g-luong-b1a48a1b5/">LUONG, KHIEM</a>  <a id="twitter" href="https://www.youtube.com/channel/UCfFOjuk2vz_9ujHS3q2JYfA/playlists"> <img id="smaller-yt" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/320px-YouTube_full-color_icon_%282017%29.svg.png" /></a>
+              <a id="twitter" href="https://www.freecodecamp.org/smarttarded">
+              <img id="smaller-twitter" src="https://img.icons8.com/windows/452/free-code-camp.png" /></a>
+              <a id="twitter" href="https://twitter.com/khiemgluong">
+              <img id="smaller-twitter" src="https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png" /></a>
+              <a id="pl" href="https://www.linkedin.com/in/khiem-g-luong-b1a48a1b5/">LUONG, KHIEM</a>
+              <a id="twitter" href="https://www.youtube.com/channel/UCfFOjuk2vz_9ujHS3q2JYfA/playlists">
+              <img id="smaller-twitter" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/320px-YouTube_full-color_icon_%282017%29.svg.png" /></a>
+              <a id="twitter" href="https://github.com/smarttarded">
+              <img id="smaller-twitter" src="https://image.flaticon.com/icons/png/512/25/25231.png" /></a>
           </h1>
         </head>
 
@@ -110,7 +117,7 @@
                     <div class="btn-back" onclick="hideArt()">SHOW ART</div>
                     <div class="btn-front" onclick="showArt()">HIDE ART</div>
                   </div>
-                  
+
                   <article id="artCol">
                     <div id='parallaximg'>
                       <div class="water" data-tilt data-tilt-max="20" data-tilt-speed="100" data-tilt-perspective="1000">
@@ -293,24 +300,24 @@
 
         var w = btn.offsetWidth,
             h = btn.offsetHeight;
-        
+
         var directions = [
           { id: 'top', x: w/2, y: 0 },
           { id: 'right', x: w, y: h/2 },
           { id: 'bottom', x: w/2, y: h },
           { id: 'left', x: 0, y: h/2 }
         ];
-        
+
         directions.sort( function( a, b ) {
           return distance( mx, my, a.x, a.y ) - distance( mx, my, b.x, b.y );
         } );
-        
+
         btn.setAttribute( 'data-direction', directions.shift().id );
         btn.classList.add( 'is-open' );
 
       } );
 
-      btnYes.addEventListener( 'click', function( event ) {	
+      btnYes.addEventListener( 'click', function( event ) {
         btn.classList.remove( 'is-open' );
       } );
       console.log(btn.classList);
