@@ -1,142 +1,5 @@
 <style>
-* {
-  padding: 0;
-  margin: 0;
-}
 
-:root {
-  --Navigation-Color: #262626;
-  --Font-Color: #ffffff;
-  --Selection-Color: #e60000;
-}
-
-::-moz-selection {
-  background-color: var(--Selection-Color);
-  color: var(--Font-Color);
-}
-
-body {
-    position: relative;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 600% 600%;
-    animation: gradient 10s ease infinite;
-    border: 10px groove gray;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-label{
-  text-align: center;
-  font-family: monospace, sans-serif;
-  color: white;
-}
-
-div{
-  text-align: center;
-  font-family: monospace, sans-serif;
-  color: white;
-  font-size: 28px;
-}
-
-/* Main Content */
-.navbar {
-  display: block;
-  position: sticky;
-  width: 100%;
-  height: 3vh;
-  background-color: var(--Navigation-Color);
-  text-align: center;
-  font-family: Arial;
-  color: var(--Font-Color);
-  padding: 1em 0;
-  margin-bottom: 3vh;
-}
-
-.main {
-  display: grid;
-  grid-template-rows: repeat(4, auto);
-  grid-column-gap: 5%;
-  grid-row-gap: 1%;
-  height: 300vh;
-  margin: 0 6vw 0 6vw;
-}
-
-#text,
-#binary {
-  display: block;
-  padding: 1em;
-  font-family: sans-serif;
-  font-size: 1.2em;
-}
-
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-column-gap: 1%;
-  grid-row-gap: 1%;
-  height: 5vh;
-
-}
-
-#clsText,
-#clsBinary {
-  display: block;
-  font-family: Arial;
-  background-color: inherit;
-  outline: none;
-  border: 1px solid var(--Navigation-Color);
-  box-shadow: 2px 2px 2px;
-}
-
-#clsText:active,
-#clsBinary:active {
-  position: relative;
-  top: 3px;
-  left: 3px;
-  box-shadow: none;
-}
-
-.footer {
-  display: none;
-  margin-top: 50vh;
-  margin-bottom: 1vh;
-  color: #222;
-  font-family: sans-serif;
-  font-size: 0.8em;
-  text-align: center;
-}
-
-#encrypt2{
-  display: block;
-  margin-left: 30%;
-  margin-right: 30%;
-  height: 90px;
-  resize: none;
-}
-
-::-webkit-input-placeholder {
-
-  font-size: 24px;
-  text-align: center;
-}
-
-#text,
-#binary {
-  display: block;
-
-  font-family: sans-serif;
-  font-size: 0.9em;
-}
 </style>
 
 <!DOCTYPE html>
@@ -144,6 +7,7 @@ div{
 <head>
   <meta charset="UTF-8">
   <title>GLUONG TXTCONVERT</title>
+  <link rel="stylesheet" href="./txtconvert.css">
 
 </head>
 <body>
@@ -151,43 +15,47 @@ div{
 <div class="container">
   <div class="navbar">TEXT CONVERTER-ENCRYPTION SET</div>
   <div class="main">
-    <textarea type="text" name="medievaltext" id="medievaltext"  placeholder="ENTER TEXT HERE for conversion to MEDIEVAL"></textarea>
+    <!-- <textarea type="text" name="medievaltext" id="medievaltext"  placeholder="ENTER TEXT HERE for conversion to MEDIEVAL"></textarea>
     <div class="buttons">
       <button onclick="toMedieval()" id="clsText">SUBMIT FORM</button>
       <button onclick="$('#medievaltext').val(null);" id="clsBinary">CLEAR FORM</button>
-    </div>
+    </div> -->
 
     <textarea type="text" name="hextext" id="hextext" placeholder="ENTER TEXT HERE for conversion to HEXADECIMAL"></textarea>
     <div class="buttons">
-      <button onclick="toHex()" id="clsText">SUBMIT FORM</button>
+      <button onclick="toHex()" id="clsText">CONVERT TEXT</button>
       <button onclick="$('#hextext').val(null);" id="clsBinary">CLEAR FORM</button>
     </div>
 
     <textarea type="text" name="encrypt" id="encrypt"  placeholder="ENTER TEXT HERE to ENCRYPT"></textarea>
-
     <div class="buttons">
-      <button onclick="EncryptText()" id="clsText">SUBMIT FORM</button>
-      <button onclick="$('#encrypt').val(null); $('#encrypt2').val(null)" id="clsBinary">CLEAR FORM</button>
-    </div>
-      <textarea type="text" name="encrypt2" id="encrypt2" maxlength="50" placeholder="ENTER optional PASSPHRASE HERE for both encryption and decryption"></textarea>
-    <label>ENCRYPTED</label>
-    <div id="demo1"></div>
-
-    <textarea type="text" name="decrypt" id="decrypt" placeholder="ENTER ENCRYPTED TEXT HERE"></textarea>
-    <div class="buttons">
-      <button onclick="DecryptText()" id="clsText">SUBMIT FORM</button>
-      <button onclick="$('#decrypt').val(null); $('#decrypt2').val(null)" id="clsBinary">CLEAR FORM</button>
+      <button onclick="EncryptText()" id="clsText">ENCRYPT TEXT</button>
+      <button onclick="$('#encrypt').val(null); $('#encrypt2').val(null); $('#demo1').text(null); " id="clsBinary">CLEAR FORM</button>
     </div>
 
-    <label>DECRYPTED</label>
-    <div id="demo2"></div>
+    <div id="row">
+      <div class="column">
+        <input type="password" name="encrypt2" id="encrypt2" maxlength="10" placeholder="ENTER optional PASSPHRASE for ENCRYPTION & DECRYPTION"></input>
+  </div>
+    <div class="column">
+      <label id="label1">ENCRYPTED</label>
+      <div id="demo1"></div>
+    </div>
+  </div>
 
+    <textarea type="text" name="decrypt" id="decrypt" placeholder="ENTER TEXT HERE TO DECRYPT"></textarea>
     <div class="buttons">
-      <button onclick="DecryptString()" id="clsText">CONVERT TO ORIGINAL</button>
+      <button onclick="DecryptText()" id="clsText">DECRYPT TEXT</button>
+      <button onclick="$('#decrypt').val(null); $('#decrypt2').val(null); $('#demo1').text(null); " id="clsBinary">CLEAR FORM</button>
+    </div>
+
+    <!-- <label>DECRYPTED</label>
+    <div id="demo2"></div> -->
+<!-- 
+    <div class="buttons">
+      <button onclick="DecryptString()" id="clsText">DECRYPT TEXT</button>
       <button onclick="document.getElementById('demo2').innerHTML = null; document.getElementById('demo3').innerHTML = null" id="clsBinary">CLEAR FORM</button>
-    </div>
-    <label>ORIGINAL</label>
-    <div id="demo3"></div>
+    </div> -->
 
   </div>
   <div class="footer">a modified code from <a href="https://codepen.io/83338a"> 83338 </a></div>
@@ -201,6 +69,7 @@ div{
 <script>
   function EncryptText()
   {
+
     var encrypted = CryptoJS.AES.encrypt($("#encrypt").val(), $("#encrypt2").val());
     var passphrase = $("#encrypt2").val();
     clear('#encrypt');
@@ -211,15 +80,17 @@ div{
 
   function DecryptText()
   {
+    $('#label1').text('DECRYPTED');
     var decrypted = CryptoJS.AES.decrypt($("#decrypt").val(), $("#encrypt2").val());
-    document.getElementById("demo2").innerHTML = decrypted;
+    decryptedstring = decrypted.toString(CryptoJS.enc.Utf8);
+    document.getElementById("demo1").innerHTML = decryptedstring;
     return decrypted;
   }
 
   function DecryptString()
   {
     var test = DecryptText();
-    document.getElementById("demo3").innerHTML = test.toString(CryptoJS.enc.Utf8);
+    document.getElementById("demo1").innerHTML = test.toString(CryptoJS.enc.Utf8);
   }
 
 
